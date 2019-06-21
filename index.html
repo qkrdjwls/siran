@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Line Menu Styles</title>
+		<meta name="description" content="An open collection of menu styles that use the line as a creative design element" />
+		<meta name="keywords" content="web design, styles, inspiration, line, pseudo-element, SVG, animation" />
+		<meta name="author" content="Codrops" />
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+
+	</head>
+	<body>
+		<div class="container">
+			<header class="section codrops-header">
+
+				<h1><span>Business designer</span> YouTube Creator</h1>
+
+				<a href="https://github.com/codrops/LineMenuStyles/" class="github-corner">
+
+				</a>
+			</header>
+			<section class="section section--intro">
+				<p>Introduce the works of YouTube creators. <br><br><strong>free private broadcasting</strong></p>
+			</section>
+			<section class="section section--menu" id="Alonso">
+				<h2 class="section__title">Alonso</h2>
+				<span class="link-copy"></span>
+				<div class="content__wrap content__wrap--related">
+						<a class="media-item" href="https://www.youtube.com/channel/UCma2_rrf2FeD82J3OadClvA">
+							<h3 class="media-item__title">HOME</h3>
+						</a>
+						<a class="media-item" href="s.html">
+							<h3 class="media-item__title">PORTFOLIO</h3>
+						</a>
+						<a class="media-item" href="https://www.youtube.com/channel/UCPa7bvOg_r54NaQb7GJA9Eg">
+							<h3 class="media-item__title">LIST</h3>
+						</a>
+						<a class="media-item" href="https://www.youtube.com/user/TamplierPainter">
+							<h3 class="media-item__title">END</h3>
+						</a>
+					</div>
+			</section>
+			<section class="content content--related">
+					<p>YouTube Channel of Luxury Designers</p>
+					<div class="content__wrap content__wrap--related">
+						<a class="media-item" href="https://www.youtube.com/channel/UCma2_rrf2FeD82J3OadClvA">
+							<h3 class="media-item__title">drawholic</h3>
+						</a>
+						<a class="media-item" href="https://www.youtube.com/channel/UCj1WyLpmoOg5jLIpy84Hh3Q">
+							<h3 class="media-item__title">Shal.E</h3>
+						</a>
+						<a class="media-item" href="https://www.youtube.com/channel/UCPa7bvOg_r54NaQb7GJA9Eg">
+							<h3 class="media-item__title">WLOP</h3>
+						</a>
+						<a class="media-item" href="https://www.youtube.com/user/TamplierPainter">
+							<h3 class="media-item__title">TamplierPainter</h3>
+						</a>
+					</div>
+				</section>
+
+			<section class="content content--related">
+				<p>YouTube Channel of Luxury Designers</p>
+				<div class="content__wrap content__wrap--related">
+					<a class="media-item" href="https://www.youtube.com/channel/UCma2_rrf2FeD82J3OadClvA">
+						<img class="media-item__img" src="img/related/1.png">
+						<h3 class="media-item__title">drawholic</h3>
+					</a>
+					<a class="media-item" href="https://www.youtube.com/channel/UCj1WyLpmoOg5jLIpy84Hh3Q">
+						<img class="media-item__img" src="img/related/2.png">
+						<h3 class="media-item__title">Shal.E</h3>
+					</a>
+					<a class="media-item" href="https://www.youtube.com/channel/UCPa7bvOg_r54NaQb7GJA9Eg">
+						<img class="media-item__img" src="img/related/3.png">
+						<h3 class="media-item__title">WLOP</h3>
+					</a>
+					<a class="media-item" href="https://www.youtube.com/user/TamplierPainter">
+						<img class="media-item__img" src="img/related/4.png">
+						<h3 class="media-item__title">TamplierPainter</h3>
+					</a>
+				</div>
+			</section>
+		</div>
+
+		<script src="js/classie.js"></script>
+		<script src="js/clipboard.min.js"></script>
+		<script>
+		(function() {
+			[].slice.call(document.querySelectorAll('.menu')).forEach(function(menu) {
+				var menuItems = menu.querySelectorAll('.menu__link'),
+					setCurrent = function(ev) {
+						ev.preventDefault();
+
+						var item = ev.target.parentNode;
+
+						if (classie.has(item, 'menu__item--current')) {
+							return false;
+						}
+
+						classie.remove(menu.querySelector('.menu__item--current'), 'menu__item--current');
+
+						classie.add(item, 'menu__item--current');
+					};
+
+				[].slice.call(menuItems).forEach(function(el) {
+					el.addEventListener('click', setCurrent);
+				});
+			});
+
+			[].slice.call(document.querySelectorAll('.link-copy')).forEach(function(link) {
+				link.setAttribute('data-clipboard-text', location.protocol + '//' + location.host + location.pathname + '#' + link.parentNode.id);
+				new Clipboard(link);
+				link.addEventListener('click', function() {
+					classie.add(link, 'link-copy--animate');
+					setTimeout(function() {
+						classie.remove(link, 'link-copy--animate');
+					}, 300);
+				});
+			});
+		})(window);
+		</script>
+	</body>
+</html>
